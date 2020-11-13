@@ -56,7 +56,7 @@ def getDate(id):
 @app.route('/dates/<id>', methods= ['DELETE'])
 def deleteDate(id):
     db.delete_one({'_id':ObjectId(id)})
-    return jsonify({'msg': 'Usuario Eliminado'})
+    return jsonify({'msg': 'Cita Eliminado'})
 
 @app.route('/dates/<id>', methods= ['PUT'])
 def updateDate(id):
@@ -69,7 +69,7 @@ def updateDate(id):
         'neighborhood':request.json['neighborhood'],
         'phone':request.json['phone']
     }})
-    return jsonify({'msg': 'Usuario actualizado'})
+    return jsonify({'msg': 'Cita actualizado'})
   
 if __name__ == "__main__":
     app.run(debug=True)
