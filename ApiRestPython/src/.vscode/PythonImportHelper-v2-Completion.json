@@ -1,0 +1,164 @@
+[
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {
+            "value": "\n```python\nimport flask\n```\n",
+            "supportThemeIcons": false
+        }
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {
+            "value": "\n```python\nimport flask\n```\n",
+            "supportThemeIcons": false
+        }
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {
+            "value": "\n```python\nimport flask\n```\n",
+            "supportThemeIcons": false
+        }
+    },
+    {
+        "label": "PyMongo",
+        "importPath": "flask_pymongo",
+        "description": "flask_pymongo",
+        "isExtraImport": true,
+        "detail": "flask_pymongo",
+        "documentation": {
+            "value": "\n```python\nimport flask_pymongo\n```\n",
+            "supportThemeIcons": false
+        }
+    },
+    {
+        "label": "ObjectId",
+        "importPath": "flask_pymongo",
+        "description": "flask_pymongo",
+        "isExtraImport": true,
+        "detail": "flask_pymongo",
+        "documentation": {
+            "value": "\n```python\nimport flask_pymongo\n```\n",
+            "supportThemeIcons": false
+        }
+    },
+    {
+        "label": "CORS",
+        "importPath": "flask_cors",
+        "description": "flask_cors",
+        "isExtraImport": true,
+        "detail": "flask_cors",
+        "documentation": {
+            "value": "\n```python\nimport flask_cors\n```\n",
+            "supportThemeIcons": false
+        }
+    },
+    {
+        "label": "createDate",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def createDate():\n    id = db.insert({\n        'identification':request.json['identification'],\n        'name':request.json['name'],\n        'lastname':request.json['lastname'],\n        'birthdate':request.json['birthdate'],\n        'city':request.json['city'],\n        'neighborhood':request.json['neighborhood'],\n        'phone':request.json['phone']\n    })",
+        "detail": "app",
+        "documentation": {
+            "value": "\n```python\nfrom app import createDate\n```\n\n```python\n\n\n```\n\n```python\ndef createDate():\n    id = db.insert({\n        'identification':request.json['identification'],\n        'name':request.json['name'],\n        'lastname':request.json['lastname'],\n        'birthdate':request.json['birthdate'],\n        'city':request.json['city'],\n        'neighborhood':request.json['neighborhood'],\n        'phone':request.json['phone']\n    })\n```\n",
+            "supportThemeIcons": false
+        }
+    },
+    {
+        "label": "getDates",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def getDates():\n    dates = []\n    for doc in db.find():\n        dates.append({\n            '_id':str(ObjectId(doc['_id'])),\n            'name':doc['name'],\n            'lastname':doc['lastname'],\n            'identification':doc['identification'],\n            'birthdate':doc['birthdate'],\n            'city':doc['city'],",
+        "detail": "app",
+        "documentation": {
+            "value": "\n```python\nfrom app import getDates\n```\n\n```python\n\n\n```\n\n```python\ndef getDates():\n    dates = []\n    for doc in db.find():\n        dates.append({\n            '_id':str(ObjectId(doc['_id'])),\n            'name':doc['name'],\n            'lastname':doc['lastname'],\n            'identification':doc['identification'],\n            'birthdate':doc['birthdate'],\n            'city':doc['city'],\n```\n",
+            "supportThemeIcons": false
+        }
+    },
+    {
+        "label": "getDate",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def getDate(id):\n    date = db.find_one({'_id': ObjectId(id)})\n    print(date)\n    return jsonify({\n        '_id': str(ObjectId(date['_id'])),\n        'name': date['name'],\n        'lastname': date['lastname'],\n        'identification': date['identification'],\n        'birthdate': date['birthdate'],\n        'city': date['city'],",
+        "detail": "app",
+        "documentation": {
+            "value": "\n```python\nfrom app import getDate\n```\n\n```python\n\n\n```\n\n```python\ndef getDate(id):\n    date = db.find_one({'_id': ObjectId(id)})\n    print(date)\n    return jsonify({\n        '_id': str(ObjectId(date['_id'])),\n        'name': date['name'],\n        'lastname': date['lastname'],\n        'identification': date['identification'],\n        'birthdate': date['birthdate'],\n        'city': date['city'],\n```\n",
+            "supportThemeIcons": false
+        }
+    },
+    {
+        "label": "deleteDate",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def deleteDate(id):\n    db.delete_one({'_id':ObjectId(id)})\n    return jsonify({'msg': 'Cita Eliminado'})\n@app.route('/dates/<id>', methods= ['PUT'])\ndef updateDate(id):\n    db.update_one({'_id':ObjectId(id)}, {'$set': {\n        'name':request.json['name'],\n        'lastname':request.json['lastname'],\n        'identification':request.json['identification'],\n        'birthdate':request.json['birthdate'],",
+        "detail": "app",
+        "documentation": {
+            "value": "\n```python\nfrom app import deleteDate\n```\n\n```python\n\n\n```\n\n```python\ndef deleteDate(id):\n    db.delete_one({'_id':ObjectId(id)})\n    return jsonify({'msg': 'Cita Eliminado'})\n@app.route('/dates/<id>', methods= ['PUT'])\ndef updateDate(id):\n    db.update_one({'_id':ObjectId(id)}, {'$set': {\n        'name':request.json['name'],\n        'lastname':request.json['lastname'],\n        'identification':request.json['identification'],\n        'birthdate':request.json['birthdate'],\n```\n",
+            "supportThemeIcons": false
+        }
+    },
+    {
+        "label": "updateDate",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def updateDate(id):\n    db.update_one({'_id':ObjectId(id)}, {'$set': {\n        'name':request.json['name'],\n        'lastname':request.json['lastname'],\n        'identification':request.json['identification'],\n        'birthdate':request.json['birthdate'],\n        'city':request.json['city'],\n        'neighborhood':request.json['neighborhood'],\n        'phone':request.json['phone']\n    }})",
+        "detail": "app",
+        "documentation": {
+            "value": "\n```python\nfrom app import updateDate\n```\n\n```python\n\n\n```\n\n```python\ndef updateDate(id):\n    db.update_one({'_id':ObjectId(id)}, {'$set': {\n        'name':request.json['name'],\n        'lastname':request.json['lastname'],\n        'identification':request.json['identification'],\n        'birthdate':request.json['birthdate'],\n        'city':request.json['city'],\n        'neighborhood':request.json['neighborhood'],\n        'phone':request.json['phone']\n    }})\n```\n",
+            "supportThemeIcons": false
+        }
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "app = Flask (__name__)\napp.config['MONGO_URI']= 'mongodb://localhost/citasMedicasdb'\nmongo = PyMongo(app)\ndb = mongo.db.dates\n@app.route('/dates', methods= ['POST'])\ndef createDate():\n    id = db.insert({\n        'identification':request.json['identification'],\n        'name':request.json['name'],\n        'lastname':request.json['lastname'],",
+        "detail": "app",
+        "documentation": {
+            "value": "\n```python\nfrom app import app\n```\n\n```python\n\n\n```\n\n```python\napp = Flask (__name__)\napp.config['MONGO_URI']= 'mongodb://localhost/citasMedicasdb'\nmongo = PyMongo(app)\ndb = mongo.db.dates\n@app.route('/dates', methods= ['POST'])\ndef createDate():\n    id = db.insert({\n        'identification':request.json['identification'],\n        'name':request.json['name'],\n        'lastname':request.json['lastname'],\n```\n",
+            "supportThemeIcons": false
+        }
+    },
+    {
+        "label": "mongo",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "mongo = PyMongo(app)\ndb = mongo.db.dates\n@app.route('/dates', methods= ['POST'])\ndef createDate():\n    id = db.insert({\n        'identification':request.json['identification'],\n        'name':request.json['name'],\n        'lastname':request.json['lastname'],\n        'birthdate':request.json['birthdate'],\n        'city':request.json['city'],",
+        "detail": "app",
+        "documentation": {
+            "value": "\n```python\nfrom app import mongo\n```\n\n```python\n\n\n```\n\n```python\nmongo = PyMongo(app)\ndb = mongo.db.dates\n@app.route('/dates', methods= ['POST'])\ndef createDate():\n    id = db.insert({\n        'identification':request.json['identification'],\n        'name':request.json['name'],\n        'lastname':request.json['lastname'],\n        'birthdate':request.json['birthdate'],\n        'city':request.json['city'],\n```\n",
+            "supportThemeIcons": false
+        }
+    },
+    {
+        "label": "db",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "db = mongo.db.dates\n@app.route('/dates', methods= ['POST'])\ndef createDate():\n    id = db.insert({\n        'identification':request.json['identification'],\n        'name':request.json['name'],\n        'lastname':request.json['lastname'],\n        'birthdate':request.json['birthdate'],\n        'city':request.json['city'],\n        'neighborhood':request.json['neighborhood'],",
+        "detail": "app",
+        "documentation": {
+            "value": "\n```python\nfrom app import db\n```\n\n```python\n\n\n```\n\n```python\ndb = mongo.db.dates\n@app.route('/dates', methods= ['POST'])\ndef createDate():\n    id = db.insert({\n        'identification':request.json['identification'],\n        'name':request.json['name'],\n        'lastname':request.json['lastname'],\n        'birthdate':request.json['birthdate'],\n        'city':request.json['city'],\n        'neighborhood':request.json['neighborhood'],\n```\n",
+            "supportThemeIcons": false
+        }
+    }
+]

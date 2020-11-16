@@ -1,19 +1,20 @@
 from flask import Flask, jsonify, request
-from flask_pymongo import PyMongo, ObjectId
+from flask_pymongo import PyMongo
 from flask_cors import CORS
+from bson import ObjectId
 
 app = Flask (__name__)
 app.config['MONGO_URI']= 'mongodb://localhost/citasMedicasdb'
 mongo = PyMongo(app)
+CORS(app)
+db = mongo.db.citasMedicasdb
 
-db = mongo.db.dates
-
-@app.route('/dates', methods= ['POST'])
+@app.route('/DatePost', methods= ['POST'])
 def createDate():
     id = db.insert({
+        'identification':request.json['identification'],
         'name':request.json['name'],
         'lastname':request.json['lastname'],
-        'identification':request.json['identification'],
         'birthdate':request.json['birthdate'],
         'city':request.json['city'],
         'neighborhood':request.json['neighborhood'],
@@ -22,7 +23,7 @@ def createDate():
     return jsonify(str(ObjectId(id)))
     
 
-@app.route('/dates', methods= ['GET'])
+@app.route('/GetDates', methods= ['GET'])
 def getDates():
     dates = []
     for doc in db.find():
@@ -38,7 +39,7 @@ def getDates():
         })
     return jsonify(dates)
 
-@app.route('/dates/<id>', methods= ['GET'])
+@app.route('/GetDate/<id>', methods= ['GET'])
 def getDate(id):
     date = db.find_one({'_id': ObjectId(id)})
     print(date)
@@ -53,12 +54,12 @@ def getDate(id):
         'phone': date['phone']    
     })      
 
-@app.route('/dates/<id>', methods= ['DELETE'])
+@app.route('/Deletedate/<id>', methods= ['DELETE'])
 def deleteDate(id):
     db.delete_one({'_id':ObjectId(id)})
     return jsonify({'msg': 'Cita Eliminado'})
 
-@app.route('/dates/<id>', methods= ['PUT'])
+@app.route('/PutDate/<id>', methods= ['PUT'])
 def updateDate(id):
     db.update_one({'_id':ObjectId(id)}, {'$set': {
         'name':request.json['name'],
@@ -72,4 +73,5 @@ def updateDate(id):
     return jsonify({'msg': 'Cita actualizado'})
   
 if __name__ == "__main__":
-    app.run(debug=True)
+    # app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000)
