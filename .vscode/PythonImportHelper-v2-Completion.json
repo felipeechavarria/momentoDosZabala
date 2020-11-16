@@ -44,17 +44,6 @@
         }
     },
     {
-        "label": "ObjectId",
-        "importPath": "flask_pymongo",
-        "description": "flask_pymongo",
-        "isExtraImport": true,
-        "detail": "flask_pymongo",
-        "documentation": {
-            "value": "\n```python\nimport flask_pymongo\n```\n",
-            "supportThemeIcons": false
-        }
-    },
-    {
         "label": "CORS",
         "importPath": "flask_cors",
         "description": "flask_cors",
@@ -62,6 +51,17 @@
         "detail": "flask_cors",
         "documentation": {
             "value": "\n```python\nimport flask_cors\n```\n",
+            "supportThemeIcons": false
+        }
+    },
+    {
+        "label": "ObjectId",
+        "importPath": "bson",
+        "description": "bson",
+        "isExtraImport": true,
+        "detail": "bson",
+        "documentation": {
+            "value": "\n```python\nimport bson\n```\n",
             "supportThemeIcons": false
         }
     },
@@ -214,14 +214,62 @@
         }
     },
     {
+        "label": "contextlib",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "contextlib",
+        "description": "contextlib",
+        "detail": "contextlib",
+        "documentation": {
+            "value": "\n```python\nimport contextlib\n```\n",
+            "supportThemeIcons": false
+        }
+    },
+    {
+        "label": "shutil",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "shutil",
+        "description": "shutil",
+        "detail": "shutil",
+        "documentation": {
+            "value": "\n```python\nimport shutil\n```\n",
+            "supportThemeIcons": false
+        }
+    },
+    {
+        "label": "tempfile",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "tempfile",
+        "description": "tempfile",
+        "detail": "tempfile",
+        "documentation": {
+            "value": "\n```python\nimport tempfile\n```\n",
+            "supportThemeIcons": false
+        }
+    },
+    {
+        "label": "zipfile",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "zipfile",
+        "description": "zipfile",
+        "detail": "zipfile",
+        "documentation": {
+            "value": "\n```python\nimport zipfile\n```\n",
+            "supportThemeIcons": false
+        }
+    },
+    {
         "label": "createDate",
         "kind": 2,
         "importPath": "ApiRestPython.src.app",
         "description": "ApiRestPython.src.app",
-        "peekOfCode": "def createDate():\n    id = db.insert({\n        'name':request.json['name'],\n        'lastname':request.json['lastname'],\n        'identification':request.json['identification'],\n        'birthdate':request.json['birthdate'],\n        'city':request.json['city'],\n        'neighborhood':request.json['neighborhood'],\n        'phone':request.json['phone']\n    })",
+        "peekOfCode": "def createDate():\n    id = db.insert({\n        'identification':request.json['identification'],\n        'name':request.json['name'],\n        'lastname':request.json['lastname'],\n        'birthdate':request.json['birthdate'],\n        'city':request.json['city'],\n        'neighborhood':request.json['neighborhood'],\n        'phone':request.json['phone']\n    })",
         "detail": "ApiRestPython.src.app",
         "documentation": {
-            "value": "\n```python\nfrom ApiRestPython.src.app import createDate\n```\n\n```python\n\n\n```\n\n```python\ndef createDate():\n    id = db.insert({\n        'name':request.json['name'],\n        'lastname':request.json['lastname'],\n        'identification':request.json['identification'],\n        'birthdate':request.json['birthdate'],\n        'city':request.json['city'],\n        'neighborhood':request.json['neighborhood'],\n        'phone':request.json['phone']\n    })\n```\n",
+            "value": "\n```python\nfrom ApiRestPython.src.app import createDate\n```\n\n```python\n\n\n```\n\n```python\ndef createDate():\n    id = db.insert({\n        'identification':request.json['identification'],\n        'name':request.json['name'],\n        'lastname':request.json['lastname'],\n        'birthdate':request.json['birthdate'],\n        'city':request.json['city'],\n        'neighborhood':request.json['neighborhood'],\n        'phone':request.json['phone']\n    })\n```\n",
             "supportThemeIcons": false
         }
     },
@@ -254,10 +302,10 @@
         "kind": 2,
         "importPath": "ApiRestPython.src.app",
         "description": "ApiRestPython.src.app",
-        "peekOfCode": "def deleteDate(id):\n    db.delete_one({'_id':ObjectId(id)})\n    return jsonify({'msg': 'Cita Eliminado'})\n@app.route('/dates/<id>', methods= ['PUT'])\ndef updateDate(id):\n    db.update_one({'_id':ObjectId(id)}, {'$set': {\n        'name':request.json['name'],\n        'lastname':request.json['lastname'],\n        'identification':request.json['identification'],\n        'birthdate':request.json['birthdate'],",
+        "peekOfCode": "def deleteDate(id):\n    db.delete_one({'_id':ObjectId(id)})\n    return jsonify({'msg': 'Cita Eliminado'})\n@app.route('/PutDate/<id>', methods= ['PUT'])\ndef updateDate(id):\n    db.update_one({'_id':ObjectId(id)}, {'$set': {\n        'name':request.json['name'],\n        'lastname':request.json['lastname'],\n        'identification':request.json['identification'],\n        'birthdate':request.json['birthdate'],",
         "detail": "ApiRestPython.src.app",
         "documentation": {
-            "value": "\n```python\nfrom ApiRestPython.src.app import deleteDate\n```\n\n```python\n\n\n```\n\n```python\ndef deleteDate(id):\n    db.delete_one({'_id':ObjectId(id)})\n    return jsonify({'msg': 'Cita Eliminado'})\n@app.route('/dates/<id>', methods= ['PUT'])\ndef updateDate(id):\n    db.update_one({'_id':ObjectId(id)}, {'$set': {\n        'name':request.json['name'],\n        'lastname':request.json['lastname'],\n        'identification':request.json['identification'],\n        'birthdate':request.json['birthdate'],\n```\n",
+            "value": "\n```python\nfrom ApiRestPython.src.app import deleteDate\n```\n\n```python\n\n\n```\n\n```python\ndef deleteDate(id):\n    db.delete_one({'_id':ObjectId(id)})\n    return jsonify({'msg': 'Cita Eliminado'})\n@app.route('/PutDate/<id>', methods= ['PUT'])\ndef updateDate(id):\n    db.update_one({'_id':ObjectId(id)}, {'$set': {\n        'name':request.json['name'],\n        'lastname':request.json['lastname'],\n        'identification':request.json['identification'],\n        'birthdate':request.json['birthdate'],\n```\n",
             "supportThemeIcons": false
         }
     },
@@ -278,10 +326,10 @@
         "kind": 5,
         "importPath": "ApiRestPython.src.app",
         "description": "ApiRestPython.src.app",
-        "peekOfCode": "app = Flask (__name__)\napp.config['MONGO_URI']= 'mongodb://localhost/citasMedicasdb'\nmongo = PyMongo(app)\ndb = mongo.db.dates\n@app.route('/dates', methods= ['POST'])\ndef createDate():\n    id = db.insert({\n        'name':request.json['name'],\n        'lastname':request.json['lastname'],\n        'identification':request.json['identification'],",
+        "peekOfCode": "app = Flask (__name__)\napp.config['MONGO_URI']= 'mongodb://localhost/citasMedicasdb'\nmongo = PyMongo(app)\nCORS(app)\ndb = mongo.db.citasMedicasdb\n@app.route('/DatePost', methods= ['POST'])\ndef createDate():\n    id = db.insert({\n        'identification':request.json['identification'],\n        'name':request.json['name'],",
         "detail": "ApiRestPython.src.app",
         "documentation": {
-            "value": "\n```python\nfrom ApiRestPython.src.app import app\n```\n\n```python\n\n\n```\n\n```python\napp = Flask (__name__)\napp.config['MONGO_URI']= 'mongodb://localhost/citasMedicasdb'\nmongo = PyMongo(app)\ndb = mongo.db.dates\n@app.route('/dates', methods= ['POST'])\ndef createDate():\n    id = db.insert({\n        'name':request.json['name'],\n        'lastname':request.json['lastname'],\n        'identification':request.json['identification'],\n```\n",
+            "value": "\n```python\nfrom ApiRestPython.src.app import app\n```\n\n```python\n\n\n```\n\n```python\napp = Flask (__name__)\napp.config['MONGO_URI']= 'mongodb://localhost/citasMedicasdb'\nmongo = PyMongo(app)\nCORS(app)\ndb = mongo.db.citasMedicasdb\n@app.route('/DatePost', methods= ['POST'])\ndef createDate():\n    id = db.insert({\n        'identification':request.json['identification'],\n        'name':request.json['name'],\n```\n",
             "supportThemeIcons": false
         }
     },
@@ -290,10 +338,10 @@
         "kind": 5,
         "importPath": "ApiRestPython.src.app",
         "description": "ApiRestPython.src.app",
-        "peekOfCode": "mongo = PyMongo(app)\ndb = mongo.db.dates\n@app.route('/dates', methods= ['POST'])\ndef createDate():\n    id = db.insert({\n        'name':request.json['name'],\n        'lastname':request.json['lastname'],\n        'identification':request.json['identification'],\n        'birthdate':request.json['birthdate'],\n        'city':request.json['city'],",
+        "peekOfCode": "mongo = PyMongo(app)\nCORS(app)\ndb = mongo.db.citasMedicasdb\n@app.route('/DatePost', methods= ['POST'])\ndef createDate():\n    id = db.insert({\n        'identification':request.json['identification'],\n        'name':request.json['name'],\n        'lastname':request.json['lastname'],\n        'birthdate':request.json['birthdate'],",
         "detail": "ApiRestPython.src.app",
         "documentation": {
-            "value": "\n```python\nfrom ApiRestPython.src.app import mongo\n```\n\n```python\n\n\n```\n\n```python\nmongo = PyMongo(app)\ndb = mongo.db.dates\n@app.route('/dates', methods= ['POST'])\ndef createDate():\n    id = db.insert({\n        'name':request.json['name'],\n        'lastname':request.json['lastname'],\n        'identification':request.json['identification'],\n        'birthdate':request.json['birthdate'],\n        'city':request.json['city'],\n```\n",
+            "value": "\n```python\nfrom ApiRestPython.src.app import mongo\n```\n\n```python\n\n\n```\n\n```python\nmongo = PyMongo(app)\nCORS(app)\ndb = mongo.db.citasMedicasdb\n@app.route('/DatePost', methods= ['POST'])\ndef createDate():\n    id = db.insert({\n        'identification':request.json['identification'],\n        'name':request.json['name'],\n        'lastname':request.json['lastname'],\n        'birthdate':request.json['birthdate'],\n```\n",
             "supportThemeIcons": false
         }
     },
@@ -302,10 +350,10 @@
         "kind": 5,
         "importPath": "ApiRestPython.src.app",
         "description": "ApiRestPython.src.app",
-        "peekOfCode": "db = mongo.db.dates\n@app.route('/dates', methods= ['POST'])\ndef createDate():\n    id = db.insert({\n        'name':request.json['name'],\n        'lastname':request.json['lastname'],\n        'identification':request.json['identification'],\n        'birthdate':request.json['birthdate'],\n        'city':request.json['city'],\n        'neighborhood':request.json['neighborhood'],",
+        "peekOfCode": "db = mongo.db.citasMedicasdb\n@app.route('/DatePost', methods= ['POST'])\ndef createDate():\n    id = db.insert({\n        'identification':request.json['identification'],\n        'name':request.json['name'],\n        'lastname':request.json['lastname'],\n        'birthdate':request.json['birthdate'],\n        'city':request.json['city'],\n        'neighborhood':request.json['neighborhood'],",
         "detail": "ApiRestPython.src.app",
         "documentation": {
-            "value": "\n```python\nfrom ApiRestPython.src.app import db\n```\n\n```python\n\n\n```\n\n```python\ndb = mongo.db.dates\n@app.route('/dates', methods= ['POST'])\ndef createDate():\n    id = db.insert({\n        'name':request.json['name'],\n        'lastname':request.json['lastname'],\n        'identification':request.json['identification'],\n        'birthdate':request.json['birthdate'],\n        'city':request.json['city'],\n        'neighborhood':request.json['neighborhood'],\n```\n",
+            "value": "\n```python\nfrom ApiRestPython.src.app import db\n```\n\n```python\n\n\n```\n\n```python\ndb = mongo.db.citasMedicasdb\n@app.route('/DatePost', methods= ['POST'])\ndef createDate():\n    id = db.insert({\n        'identification':request.json['identification'],\n        'name':request.json['name'],\n        'lastname':request.json['lastname'],\n        'birthdate':request.json['birthdate'],\n        'city':request.json['city'],\n        'neighborhood':request.json['neighborhood'],\n```\n",
             "supportThemeIcons": false
         }
     },
@@ -738,6 +786,18 @@
         "detail": "ApiRestPython.venv.Scripts.activate_this",
         "documentation": {
             "value": "\n```python\nfrom ApiRestPython.venv.Scripts.activate_this import sys.prefix\n```\n\n```python\n\n\n```\n\n```python\nsys.prefix = base\n```\n",
+            "supportThemeIcons": false
+        }
+    },
+    {
+        "label": "cleanup",
+        "kind": 2,
+        "importPath": "citasMedecas.node_modules.react-native.ReactAndroid.src.main.third-party.android.support.v7.appcompat.aar-unpacker",
+        "description": "citasMedecas.node_modules.react-native.ReactAndroid.src.main.third-party.android.support.v7.appcompat.aar-unpacker",
+        "peekOfCode": "def cleanup(path):\n    yield path\n    shutil.rmtree(path)\nif __name__ == '__main__':\n    with zipfile.ZipFile(sys.argv[1], 'r') as z:\n        with cleanup(tempfile.mkdtemp()) as temp_path:\n            z.extractall(temp_path, filter(lambda n: n.startswith(sys.argv[2]), z.namelist()))\n            shutil.move(os.path.join(temp_path, sys.argv[2]), sys.argv[3])",
+        "detail": "citasMedecas.node_modules.react-native.ReactAndroid.src.main.third-party.android.support.v7.appcompat.aar-unpacker",
+        "documentation": {
+            "value": "\n```python\nfrom citasMedecas.node_modules.react-native.ReactAndroid.src.main.third-party.android.support.v7.appcompat.aar-unpacker import cleanup\n```\n\n```python\n\n\n```\n\n```python\ndef cleanup(path):\n    yield path\n    shutil.rmtree(path)\nif __name__ == '__main__':\n    with zipfile.ZipFile(sys.argv[1], 'r') as z:\n        with cleanup(tempfile.mkdtemp()) as temp_path:\n            z.extractall(temp_path, filter(lambda n: n.startswith(sys.argv[2]), z.namelist()))\n            shutil.move(os.path.join(temp_path, sys.argv[2]), sys.argv[3])\n```\n",
             "supportThemeIcons": false
         }
     }
