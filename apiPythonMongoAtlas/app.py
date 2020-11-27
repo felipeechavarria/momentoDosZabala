@@ -42,21 +42,6 @@ def getDates():
         })
     return jsonify(dates)
 
-@app.route('/GetDate/<id>', methods= ['GET'])
-def getDate(id):
-    date = db.find_one({'_id': ObjectId(id)})
-    print(date)
-    return jsonify({
-        '_id': str(ObjectId(date['_id'])),
-        'name': date['name'],
-        'lastname': date['lastname'],
-        'identification': date['identification'],
-        'birthdate': date['birthdate'],
-        'city': date['city'],
-        'neighborhood': date['neighborhood'],
-        'phone': date['phone']    
-    })      
-
 @app.route('/Deletedate/<id>', methods= ['DELETE'])
 def deleteDate(id):
     db.delete_one({'_id':ObjectId(id)})

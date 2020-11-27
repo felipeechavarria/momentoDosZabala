@@ -91,18 +91,6 @@
         }
     },
     {
-        "label": "getDate",
-        "kind": 2,
-        "importPath": "app",
-        "description": "app",
-        "peekOfCode": "def getDate(id):\n    date = db.find_one({'_id': ObjectId(id)})\n    print(date)\n    return jsonify({\n        '_id': str(ObjectId(date['_id'])),\n        'name': date['name'],\n        'lastname': date['lastname'],\n        'identification': date['identification'],\n        'birthdate': date['birthdate'],\n        'city': date['city'],",
-        "detail": "app",
-        "documentation": {
-            "value": "\n```python\nfrom app import getDate\n```\n\n```python\n\n\n```\n\n```python\ndef getDate(id):\n    date = db.find_one({'_id': ObjectId(id)})\n    print(date)\n    return jsonify({\n        '_id': str(ObjectId(date['_id'])),\n        'name': date['name'],\n        'lastname': date['lastname'],\n        'identification': date['identification'],\n        'birthdate': date['birthdate'],\n        'city': date['city'],\n```\n",
-            "supportThemeIcons": false
-        }
-    },
-    {
         "label": "deleteDate",
         "kind": 2,
         "importPath": "app",
