@@ -4,4 +4,5 @@
                   Camilo Perez,
                   Felipe Echavarria
                   }
- Se debe instalar flask, cors y pymongo buscar ayuda en la documentacion    
+ Se debe instalar flask, cors y pymongo. 
+ Buscar ayuda en la documentacion    
